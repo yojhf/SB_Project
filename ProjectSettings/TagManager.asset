@@ -7,6 +7,9 @@ TagManager:
   - Rock
   - Item
   - WeakAnimal
+  - Twig
+  - Grass
+  - Tree
   layers:
   - Default
   - TransparentFX

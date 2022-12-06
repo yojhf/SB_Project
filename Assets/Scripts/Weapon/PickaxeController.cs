@@ -6,7 +6,8 @@ public class PickaxeController : CloseWeaponController
 {
     public static bool isActivate = true;
 
-    private void Start() {
+    private void Start() 
+    {
         WeaponManager.currentWeapon = currentCloseWeapon.GetComponent<Transform>();
         WeaponManager.currentWeaponAnim = currentCloseWeapon.anim;
     }
@@ -19,16 +20,24 @@ public class PickaxeController : CloseWeaponController
 
     protected override IEnumerator HitCoroutine()
     {
-        while (isSwing){
+        while (isSwing)
+        {
             if (CheckObject()){
                 if (hitInfo.transform.tag == "Rock")
+                {
                     hitInfo.transform.GetComponent<Rock>().Mining();
-                else if (hitInfo.transform.tag == "WeakAnimal"){
+                }                  
+                else if (hitInfo.transform.tag == "WeakAnimal")
+                {
                     // 약한 동물 피격 호출
                     SoundManager.instance.PlaySE("Animal_Hit");
                     hitInfo.transform.GetComponent<WeakAnimal>().Damage(1, transform.position);
                 }
-                
+                else if (hitInfo.transform.tag == "Twig")
+                {
+                    hitInfo.transform.GetComponent<Twig>().Damage(this.transform);
+                }
+
                 isSwing = false;
                 Debug.Log(hitInfo.transform.name);
             }

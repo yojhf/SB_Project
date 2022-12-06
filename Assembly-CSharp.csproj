@@ -92,6 +92,8 @@
     <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\NPC\WeakAnimal.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Twig.cs" />
+    <Compile Include="Assets\Scripts\Grass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Saves\SaveFile.txt" />

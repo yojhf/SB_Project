@@ -19,9 +19,10 @@ public class CraftManual : MonoBehaviour
 
     [SerializeField]
     private GameObject go_BaseUI;   // 기본 베이스
-
+    
     [SerializeField]
     private Craft[] craft_fire;     // 모닥불용 탭
+
 
     private GameObject go_Preview;  // 미리보기 프리팹을 담을 변수
     private GameObject go_Prefab;   // 실제 생성될 프리팹을 담을 변수
@@ -41,6 +42,9 @@ public class CraftManual : MonoBehaviour
     {
         go_Preview = Instantiate(craft_fire[_slotNumber].go_PreviewPrefab, tf_Player.position + tf_Player.forward, Quaternion.identity);
         go_Prefab = craft_fire[_slotNumber].go_Prefab;
+
+        //go_Preview = Instantiate(craft_wall[_slotNumber].go_PreviewPrefab, tf_Player.position + tf_Player.forward, Quaternion.identity);
+        //go_Prefab = craft_wall[_slotNumber].go_Prefab;
 
         GameManager.isOpenCraftManual = false;
         isPreviewActivated = true;
@@ -69,7 +73,8 @@ public class CraftManual : MonoBehaviour
     // 프리뷰 위치에 프리팹 생성
     private void Build()
     {
-        if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().isBuildable()){
+        if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().isBuildable())
+        {
             Instantiate(go_Prefab, hitInfo.point, Quaternion.identity);
             Destroy(go_Preview);
             isActivated = false;

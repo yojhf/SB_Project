@@ -72,18 +72,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.canPlayerMove){
-            IsGround();             // 지면 체크
+        if (GameManager.canPlayerMove)
+        {
+            IsGround();             // 지면 확인
             TryJump();              // 점프
             TryCrouch();            // 앉기
             Move();                 // 움직이기
             CameraRotation();       // 캐릭터 좌우 회전
             CharacterRotation();    // 카메라 상하 회전
 
-            if (!GameManager.isWater){
+            if (!GameManager.isWater)
+            {
                 TryRun();               // 뛰기
             }
-            else{
+            else
+            {
                 WaterCheck();           // 물 속에서 뛰기
             }
         }

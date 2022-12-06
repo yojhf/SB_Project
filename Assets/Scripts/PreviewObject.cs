@@ -34,7 +34,8 @@ public class PreviewObject : MonoBehaviour
         foreach(Transform tf_Child in this.transform){
             var newMaterials = new Material[tf_Child.GetComponent<Renderer>().materials.Length];
 
-            for (int i = 0; i < newMaterials.Length; i++){
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
                 newMaterials[i] = mat;
             }
 
@@ -42,12 +43,14 @@ public class PreviewObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other) 
+    {
         if (other.gameObject.layer != layerGround && other.gameObject.layer != IGNORE_RAYCAST_LAYER)
             colliderList.Add(other);
     }
 
-    private void OnTriggerExit(Collider other) {
+    private void OnTriggerExit(Collider other)
+    {
         if (other.gameObject.layer != layerGround && other.gameObject.layer != IGNORE_RAYCAST_LAYER)
             colliderList.Remove(other);
     }
