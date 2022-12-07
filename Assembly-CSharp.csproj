@@ -73,8 +73,10 @@
     <Compile Include="Assets\Scripts\UI\HUD.cs" />
     <Compile Include="Assets\Scripts\SaveNLoad.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Twig.cs" />
     <Compile Include="Assets\Scripts\UI\StatusController.cs" />
     <Compile Include="Assets\Scripts\HandController.cs" />
+    <Compile Include="Assets\Scripts\TreeComponent.cs" />
     <Compile Include="Assets\Scripts\UI\DragSlot.cs" />
     <Compile Include="Assets\Scripts\Weapon\CloseWeapon.cs" />
     <Compile Include="Assets\Scripts\ActionController.cs" />
@@ -86,14 +88,14 @@
     <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
     <Compile Include="Assets\Scripts\UI\Crosshair.cs" />
     <Compile Include="Assets\Scripts\PreviewObject.cs" />
+    <Compile Include="Assets\Scripts\Grass.cs" />
     <Compile Include="Assets\Scripts\Building\SimpleTrap.cs" />
     <Compile Include="Assets\Scripts\UI\CraftManual.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\NPC\WeakAnimal.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Twig.cs" />
-    <Compile Include="Assets\Scripts\Grass.cs" />
+    <Compile Include="Assets\Scripts\Building\Building.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Saves\SaveFile.txt" />

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private bool pauseCameraRotation = false;
     // 스피드 조정 변수
     [SerializeField]
     private float walkSpeed;            // 걷기 속도
@@ -56,7 +57,9 @@ public class PlayerController : MonoBehaviour
     private GunController theGunController;
     private Crosshair theCrosshair;
     private StatusController theStatusController;
-    
+
+   
+
     void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -268,5 +271,22 @@ public class PlayerController : MonoBehaviour
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
         theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+    }
+    public IEnumerator TreeLookCoroutine(Vector3 _target)
+    {
+        pauseCameraRotation = true;
+
+        Quaternion direction = Quaternion.LookRotation(_target - theCamera.transform.position);
+        Vector3 eulerValue = direction.eulerAngles;
+        float destinationX = eulerValue.x;
+
+        while (Mathf.Abs(destinationX - currentCameraRotationX) >= 0.5f)
+        {
+            eulerValue = Quaternion.Lerp(theCamera.transform.localRotation, direction, 0.3f).eulerAngles;  // 쿼터니언  벡터
+            theCamera.transform.localRotation = Quaternion.Euler(eulerValue.x, 0f, 0f); // 벡터  쿼터니언 (X축으로만 회전하면 됨)
+            currentCameraRotationX = theCamera.transform.localEulerAngles.x;
+            yield return null;
+        }
+        pauseCameraRotation = false;
     }
 }

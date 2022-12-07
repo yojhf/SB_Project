@@ -6,6 +6,13 @@ public class AxeController : CloseWeaponController
 {
     public static bool isActivate = false;
 
+    private void Start()
+    {
+        WeaponManager.currentWeapon = currentCloseWeapon.GetComponent<Transform>();
+        WeaponManager.currentWeaponAnim = currentCloseWeapon.anim;
+        thePlayerController = FindObjectOfType<PlayerController>();
+    }
+
     void Update()
     {
         if (isActivate)
@@ -20,6 +27,10 @@ public class AxeController : CloseWeaponController
                 if(hitInfo.transform.tag == "Grass")
                 {
                     hitInfo.transform.GetComponent<Grass>().Damage();
+                }
+                if (hitInfo.transform.tag == "Tree")
+                {
+                    hitInfo.transform.GetComponent<TreeComponent>().Chop(hitInfo.point, transform.eulerAngles.y);
                 }
                 isSwing = false;
                 Debug.Log(hitInfo.transform.name);

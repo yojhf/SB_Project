@@ -18,14 +18,29 @@ public abstract class CloseWeaponController : MonoBehaviour
     [SerializeField]
     protected LayerMask layerMask;
 
+    protected PlayerController thePlayerController;
+
     // 공격 여부 확인
     protected void TryAttack()
     {
-        if (!Inventory.inventoryActivated){
-            if (Input.GetButton("Fire1")){
-                if (!isAttack){
+        if (!Inventory.inventoryActivated)
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                if (!isAttack)
+                {
+                    if (CheckObject())
+                    {
+                        if (currentCloseWeapon.isAxe && hitInfo.transform.tag == "Tree")
+                        {
+                            StartCoroutine(thePlayerController.TreeLookCoroutine(hitInfo.transform.GetComponent<TreeComponent>().GetTreeCenterPosition()));
+                            StartCoroutine(AttackCoroutine("Chop", currentCloseWeapon.workDelayA, currentCloseWeapon.workDelayB, currentCloseWeapon.workDelay));
+                            return;
+                        }
+                    }
+
                     // 코루틴 실행
-                    StartCoroutine(AttackCoroutine());
+                    StartCoroutine(AttackCoroutine("Attack", currentCloseWeapon.attackDelayA, currentCloseWeapon.attackDelayB, currentCloseWeapon.attackDelay));
                 }
             }    
         }
@@ -33,7 +48,7 @@ public abstract class CloseWeaponController : MonoBehaviour
     }
 
     // 공격 진행 코루틴
-    IEnumerator AttackCoroutine()
+    protected IEnumerator AttackCoroutine(string swingType, float _delayA, float _delayB, float _delay)
     {
         isAttack = true;
 
@@ -49,6 +64,21 @@ public abstract class CloseWeaponController : MonoBehaviour
         isSwing = false;
 
         yield return new WaitForSeconds(currentCloseWeapon.attackDelay - currentCloseWeapon.attackDelayA - currentCloseWeapon.attackDelayB);
+
+
+
+        // work
+        currentCloseWeapon.anim.SetTrigger(swingType);
+
+        yield return new WaitForSeconds(_delayA);
+        isSwing = true;
+
+        StartCoroutine(HitCoroutine());
+
+        yield return new WaitForSeconds(_delayB);
+        isSwing = false;
+
+        yield return new WaitForSeconds(_delay - _delayA - _delayB);
 
         isAttack = false;
     }
