@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 614276770421397803}
   - component: {fileID: 4677283799976940961}
   - component: {fileID: 6219536221774266666}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Pillar_chil
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2027209821752798625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 1, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3471624601105768468}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3471624601105768468}
   - component: {fileID: 1275318540500962843}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ BoxCollider:
   m_GameObject: {fileID: 4280214611566459566}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.001245016, y: 0.020499999, z: 0.0012450186}
-  m_Center: {x: -2.0372681e-10, y: 0.010146675, z: 0.0001408244}
+  m_Size: {x: 0.00035, y: 0.020499999, z: 0.00035}
+  m_Center: {x: 0, y: 0.01, z: 0.00003}

@@ -176,4 +176,4 @@ MonoBehaviour:
   layerGround: 9
   green: {fileID: 2100000, guid: c481d19dfc5be1b4b9a6800f2c922e64, type: 2}
   red: {fileID: 2100000, guid: b5f25ed733e0ec0489a04be10ec916ab, type: 2}
-  needType: 2
+  needType: 1

@@ -22,6 +22,7 @@ public class PreviewObject : MonoBehaviour
     void Update()
     {
         ChangeColor();
+        // Debug.Log(needTypeFlag);
     }
 
 
@@ -62,15 +63,21 @@ public class PreviewObject : MonoBehaviour
     {
         if (other.transform.tag == "Structure")
         {
-            if (other.GetComponent<Building>().type == needType)
+            Debug.Log("빌딩 type: "+other.GetComponent<Building>().type);
+            Debug.Log("필요한 type: "+needType);
+            if (other.GetComponent<Building>().type == needType){
                 needTypeFlag = true;
+            }
             else
                 colliderList.Add(other);
+                Debug.Log("태그랑 필요한 타입이 맞지 않음" + colliderList.Count);
+            
         }
         else
         {
             if (other.gameObject.layer != layerGround && other.gameObject.layer != IGNORE_RAYCAST_LAYER)
                 colliderList.Add(other);
+                Debug.Log("레이어문제" + colliderList.Count);
         }
     }
 

@@ -1,1 +1,1 @@
-{"playerPos":{"x":72.16000366210938,"y":1.0000001192092896,"z":53.59000015258789},"playerRot":{"x":0.0,"y":351.5249938964844,"z":0.0},"invenArrayNumber":[],"invenItemName":[],"invenItemNumber":[]}
+{"playerPos":{"x":57.27948760986328,"y":12.000797271728516,"z":57.141517639160159},"playerRot":{"x":0.0,"y":30.599885940551759,"z":0.0},"invenArrayNumber":[0,1],"invenItemName":["Log","Rock"],"invenItemNumber":[3,3]}

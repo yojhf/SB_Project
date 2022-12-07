@@ -116,18 +116,18 @@ public class CraftManual : MonoBehaviour
                 }
 
 
-                Vector2 wheelInput2 = Input.mouseScrollDelta;
-                if (wheelInput2.y > 0)
-                {
-                    _location = new Vector3(0f, +20f, 0f);
-                    // 휠을 밀어 돌렸을 때의 처리 ↑
-                }
-                else if (wheelInput2.y < 0)
-                {
-                    _location = new Vector3(0f, -20f, 0f);
-                    // 휠을 당겨 올렸을 때의 처리 ↓
-                }
-                Debug.Log(_location);
+                // Vector2 wheelInput2 = Input.mouseScrollDelta;
+                // if (wheelInput2.y > 0)
+                // {
+                //     _location = new Vector3(0f, +20f, 0f);
+                //     // 휠을 밀어 돌렸을 때의 처리 ↑
+                // }
+                // else if (wheelInput2.y < 0)
+                // {
+                //     _location = new Vector3(0f, -20f, 0f);
+                //     // 휠을 당겨 올렸을 때의 처리 ↓
+                // }
+                // Debug.Log(_location);
                 // _location.Set(Mathf.Round(_location.x), Mathf.Round(_location.y / 0.1f) * 0.1f, Mathf.Round(_location.z));
                 go_Preview.transform.position = _location;
             }
