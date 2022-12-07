@@ -39,6 +39,9 @@ public class TreeComponent : MonoBehaviour
     [SerializeField]
     private string logChange_sound;  // 나무 쓰러져서 통나무로 바뀔 때 재생시킬 사운드 이름
 
+    [SerializeField]
+    private GameObject go_Log_item_prefab;
+
 
     // 도끼질 한 위치를 알아야 그 곳에서 이펙트 효과 재생함
     // 플레이어가 도끼질 한 Y 방향 회전값을 알아야 어느 조각이 맞았는지를 알 수 있음.
@@ -118,6 +121,9 @@ public class TreeComponent : MonoBehaviour
         yield return new WaitForSeconds(destroyTime);
 
         SoundManager.instance.PlaySE(logChange_sound);
+        Instantiate(go_Log_item_prefab,
+               new Vector3(go_Log_Prefabs.transform.position.x, go_Log_Prefabs.transform.position.y + 0.5f, go_Log_Prefabs.transform.position.z),
+               Quaternion.identity);
 
         Instantiate(go_Log_Prefabs, go_ChildTree.transform.position + (go_ChildTree.transform.up * 3f), Quaternion.LookRotation(go_ChildTree.transform.up));
         Instantiate(go_Log_Prefabs, go_ChildTree.transform.position + (go_ChildTree.transform.up * 6f), Quaternion.LookRotation(go_ChildTree.transform.up));

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\UI\Item.cs" />
     <Compile Include="Assets\Scripts\Weapon\GunController.cs" />
     <Compile Include="Assets\Scripts\NPC\Animal.cs" />
+    <Compile Include="Assets\Scripts\Building\Building.cs" />
     <Compile Include="Assets\Scripts\DayAndNight.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UI\Slot.cs" />
@@ -95,7 +96,6 @@
     <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\NPC\WeakAnimal.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Building\Building.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Saves\SaveFile.txt" />

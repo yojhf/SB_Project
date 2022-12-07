@@ -73,6 +73,8 @@ public class CraftManual : MonoBehaviour
         // 프리뷰가 생성 되었을 때
         if (isPreviewActivated)
             PreviewPositionUpdate();
+
+ 
     }
 
     // 프리뷰 위치에 프리팹 생성
@@ -113,6 +115,19 @@ public class CraftManual : MonoBehaviour
                     go_Preview.transform.eulerAngles = new Vector3(new_angle_x, new_angle_y, 0);
                 }
 
+
+                Vector2 wheelInput2 = Input.mouseScrollDelta;
+                if (wheelInput2.y > 0)
+                {
+                    _location = new Vector3(0f, +20f, 0f);
+                    // 휠을 밀어 돌렸을 때의 처리 ↑
+                }
+                else if (wheelInput2.y < 0)
+                {
+                    _location = new Vector3(0f, -20f, 0f);
+                    // 휠을 당겨 올렸을 때의 처리 ↓
+                }
+                Debug.Log(_location);
                 // _location.Set(Mathf.Round(_location.x), Mathf.Round(_location.y / 0.1f) * 0.1f, Mathf.Round(_location.z));
                 go_Preview.transform.position = _location;
             }
